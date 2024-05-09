@@ -1,10 +1,11 @@
-import React, { lazy } from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import './global.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const InvertedCursorExample = lazy(() => import("./components/ui/InvertedCursor/example.tsx"))
+const BentoGridExample = lazy(() => import("./components/ui/BentoGrid/Example.tsx"))
 
 const routes = createBrowserRouter([
   {
@@ -13,7 +14,19 @@ const routes = createBrowserRouter([
   },
   {
     path: "/inverted-cursor",
-    element: <InvertedCursorExample />,
+    element: 
+      <Suspense fallback="loading...">
+        <InvertedCursorExample />
+      </Suspense>  
+    ,
+  },
+  {
+    path: "/bento-grid",
+    element: 
+      <Suspense fallback="loading...">
+        <BentoGridExample />
+      </Suspense>  
+    ,
   },
   
 ])

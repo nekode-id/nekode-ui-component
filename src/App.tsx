@@ -1,12 +1,13 @@
 
 import { Link } from "react-router-dom"
-import InvertedCursor from "./components/ui/InvertedCursor/InvertedCursor"
 
 export const componentLinks = [
   {
     link: "/inverted-cursor",
-    element: <InvertedCursor />
-  }
+  },
+  {
+    link: "/bento-grid",
+  },
 ]
 
 export default function App() {
@@ -16,14 +17,14 @@ export default function App() {
         List of UI Components
       </h1>
 
-      <main className="container mx-auto">
+      <main className="container mx-auto mt-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {componentLinks.map((component) => (
-            <div key={component.link.split('/')[1]} className="p-4">
-              <Link to={component.link} className="hover:underline">
-                  <h1 className="font-bold text-xl capitalize">{component.link.split('/')[1]}</h1>
+          {componentLinks.map((component, index) => (
+            <div key={component.link.split('/')[1]} className="p-4 bg-stone-700 hover:bg-stone-600 rounded-md">
+              <Link to={component.link} className="flex items-center gap-3 ">
+                <span className="text-white">{index + 1}</span>
+                  <h1 className="font-bold text-xl capitalize">{component.link.split('/')[1].replace("-"," ")}</h1>
               </Link>
-              {component.element}
             </div>
           ))}
         </div>
