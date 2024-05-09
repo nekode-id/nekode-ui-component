@@ -3,3 +3,12 @@
 .active-cursor{
    @apply bg-white scale-[3] transition duration-500 ease-in-out border-none;
 }
+
+/* using native css */
+
+/* .active-cursor{
+   background-color: white;
+   transform: scale(3);
+   transition: all 0.5s ease-in-out;
+   border: unset;
+} */
