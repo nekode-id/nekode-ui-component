@@ -8,6 +8,9 @@ export const componentLinks = [
   {
     link: "/bento-grid",
   },
+  {
+    link: "/navbar",
+  },
 ]
 
 export default function App() {
@@ -17,15 +20,16 @@ export default function App() {
         List of UI Components
       </h1>
 
-      <main className="container mx-auto mt-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <main className="container mx-auto mt-32 px-5">
+        <div className="flex flex-wrap gap-4">
           {componentLinks.map((component, index) => (
-            <div key={component.link.split('/')[1]} className="p-4 bg-stone-700 hover:bg-stone-600 rounded-md">
-              <Link to={component.link} className="flex items-center gap-3 ">
+            <Link 
+              to={component.link}
+              key={component.link.split('/')[1]} 
+              className="p-4 bg-stone-900 hover:bg-gradient-to-b hover:from-stone-800 active:scale-[.9] transition duration-150 hover:to-stone-700 rounded-lg flex items-center gap-3 ">
                 <span className="text-white">{index + 1}</span>
-                  <h1 className="font-bold text-xl capitalize">{component.link.split('/')[1].replace("-"," ")}</h1>
-              </Link>
-            </div>
+                  <h1 className="font-bold text-xl capitalize text-white">{component.link.split('/')[1].replace("-"," ")}</h1>
+            </Link>
           ))}
         </div>
       </main>

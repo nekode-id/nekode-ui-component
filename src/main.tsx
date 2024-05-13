@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const InvertedCursorExample = lazy(() => import("./components/ui/InvertedCursor/example.tsx"))
 const BentoGridExample = lazy(() => import("./components/ui/BentoGrid/Example.tsx"))
+const NavbarExample = lazy(() => import("./components/ui/Navbar/Example.tsx"))
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,14 @@ const routes = createBrowserRouter([
     element: 
       <Suspense fallback="loading...">
         <BentoGridExample />
+      </Suspense>  
+    ,
+  },
+  {
+    path: "/navbar",
+    element: 
+      <Suspense fallback="loading...">
+        <NavbarExample />
       </Suspense>  
     ,
   },
