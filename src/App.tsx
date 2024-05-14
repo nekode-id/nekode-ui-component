@@ -11,6 +11,9 @@ export const componentLinks = [
   {
     link: "/navbar",
   },
+  {
+    link: "/card",
+  },
 ]
 
 export default function App() {
