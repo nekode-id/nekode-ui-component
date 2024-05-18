@@ -1,19 +1,20 @@
 
 
 import React from "react";
-import { ChildrenOnlyProps } from "../../libs/types";
+import { ChildrenWithClass } from "../../libs/types";
+import { cn } from "../../libs/utils";
 
-export interface CardImageProps {
+export interface CardImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
    src: string;
    alt?: string;
    className?: string;
-   imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
  }
 
-export const Card : React.FC<ChildrenOnlyProps> = (props : ChildrenOnlyProps) => {
+
+export const Card : React.FC<ChildrenWithClass> = (props : ChildrenWithClass) => {
    return (
       <>
-         <div className="bg-white shadow-md rounded-md overflow-hidden">
+         <div className={cn("bg-white shadow-md rounded-md overflow-hidden", props.className)}>
             {props.children}
          </div>
       </>
@@ -27,18 +28,17 @@ export const CardImage : React.FC<CardImageProps> = (props : CardImageProps) => 
             <img 
                src={props.src}
                alt={props.alt || ""}
-               {...props.imgProps}
-               className={`w-full h-[300px] object-cover`}
+               className={cn(`w-full h-[300px] object-cover`, props.className)}
                loading="lazy"/>
          </figure>
       </>
    )
 }
 
-export const CardBody : React.FC<ChildrenOnlyProps> = (props : ChildrenOnlyProps) => { 
+export const CardBody : React.FC<ChildrenWithClass> = (props : ChildrenWithClass) => { 
    return (
       <>
-         <div className="p-4">
+         <div className={cn("p-4", props.className)}>
             {props.children}
          </div>
       </>
